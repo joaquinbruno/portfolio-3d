@@ -2,19 +2,19 @@
 
 import { usePortfolioStore, type SectionId } from '@/hooks/usePortfolioStore';
 import {
-  Briefcase,
-  Cpu,
-  FolderGit2,
-  GraduationCap,
-  Mail,
-  MailOpen,
-  MapPin,
-  Rocket,
-  ShieldCheck,
-  Sparkles,
-  Terminal,
-  User,
-  X
+    Briefcase,
+    Cpu,
+    FolderGit2,
+    GraduationCap,
+    Mail,
+    MailOpen,
+    MapPin,
+    Rocket,
+    ShieldCheck,
+    Sparkles,
+    Terminal,
+    User,
+    X
 } from 'lucide-react';
 import { portfolioData as multilingualPortfolio } from '../../data/portfolio';
 
@@ -163,7 +163,7 @@ export function SectionPanel({ sectionId }: SectionPanelProps) {
         {/* EXPERIENCE SECTION */}
         {sectionId === 'experience' && (
           <div className="space-y-5">
-            {portfolioData.experience.map((exp, idx) => (
+            {[...portfolioData.experience].slice().reverse().map((exp, idx) => (
               <div key={idx} className="relative border-l border-emerald-500/20 pl-4 space-y-2">
                 <div className="absolute left-[-4.5px] top-1.5 h-2 w-2 rounded-full bg-emerald-500 border border-black animate-pulse"></div>
 
@@ -210,7 +210,19 @@ export function SectionPanel({ sectionId }: SectionPanelProps) {
                   <span className="text-[9px] font-bold text-purple-400 border border-purple-500/20 px-1.5 py-0.5 rounded bg-purple-950/20 uppercase tracking-widest">
                     {proj.type}
                   </span>
-                  <h3 className="font-bold text-white text-sm mt-1.5 leading-snug font-mono">{proj.title}</h3>
+                  <h3 className="font-bold text-white text-sm mt-1.5 leading-snug font-mono flex items-center gap-2">
+                    {proj.title}
+                    {proj.title.toLowerCase().includes('cortenvio') && (
+                      <a
+                        href="https://cortenvio.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-2 text-emerald-400 underline text-xs hover:text-emerald-300 transition-colors"
+                      >
+                        cortenvio.com
+                      </a>
+                    )}
+                  </h3>
                 </div>
 
                 <p className="text-[11px] text-gray-300 font-sans leading-normal">{proj.description}</p>
