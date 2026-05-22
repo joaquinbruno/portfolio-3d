@@ -56,7 +56,7 @@ export function CVDossier() {
               className="flex items-center gap-1.5 border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 px-3.5 py-1.5 rounded text-xs tracking-wider text-gray-300 hover:text-white font-bold transition-all cursor-pointer"
             >
               <ChevronUp className="w-4 h-4 text-gray-400" />
-              {lang === 'es' ? 'RETORNAR AL 3D' : 'RETURN TO 3D'}
+              {lang === 'es' ? 'VOLVER AL 3D' : 'RETURN TO 3D'}
             </Link>
 
             <a
