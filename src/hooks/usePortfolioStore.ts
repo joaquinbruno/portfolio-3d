@@ -6,7 +6,7 @@ export type SectionId =
   | 'experience'
   | 'projects'
   | 'studies'
-  | 'personalProjects'
+  | 'personals'
   | 'contact'
   | null;
 

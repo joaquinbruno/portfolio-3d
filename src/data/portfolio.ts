@@ -19,9 +19,13 @@ export interface ExperienceInfo {
   role: string;
   company: string;
   period: string;
-  industry: string;
+  industry?: string;
   description: string;
   highlights: string[];
+  type?: string;
+  location?: string;
+  url?: string;
+  tech?: string[];
 }
 
 export interface ProjectInfo {
@@ -39,6 +43,16 @@ export interface StudyInfo {
   description: string;
 }
 
+export interface personalInfo {
+  title: string;
+  type: string;
+  description: string;
+  stack: string[];
+  features: string[];
+  status: string;
+  purpose: string;
+}
+
 export interface PersonalProjectInfo {
   title: string;
   type: string;
@@ -49,6 +63,13 @@ export interface PersonalProjectInfo {
   purpose: string;
 }
 
+export interface CourseInfo {
+  title: string;
+  instructor: string;
+  category: string;
+  technologies: string[];
+}
+
 export interface PortfolioData {
   profile: ProfileInfo;
   about: { text: string };
@@ -56,7 +77,8 @@ export interface PortfolioData {
   experience: ExperienceInfo[];
   projects: ProjectInfo[];
   studies: StudyInfo[];
-  personalProjects: PersonalProjectInfo[];
+  courses: CourseInfo[];
+  personals: PersonalProjectInfo[];
 }
 
 export interface MultilingualPortfolio {
@@ -75,15 +97,15 @@ export const portfolioData: MultilingualPortfolio = {
       linkedin: "https://www.linkedin.com/in/joaqu%C3%ADn-bruno-b19b26218/",
       github: "https://github.com/joaquinbruno",
       headline: "Full Stack Developer enfocado en plataformas web, integraciones, APIs, dashboards y e-commerce.",
-      summary: "Soy Full Stack Developer con experiencia construyendo aplicaciones web de punta a punta, integrando frontend, backend, bases de datos, APIs de terceros y despliegues. Trabajo con React, Next.js, Angular, Node.js, NestJS, Python, PostgreSQL, Docker y AWS. Me interesa desarrollar productos claros, escalables y orientados a negocio, especialmente en SaaS, e-commerce, fintech, dashboards e integraciones.",
+      summary: "Desarrollador Full Stack con experiencia en el desarrollo de aplicaciones web de punta a punta, combinando frontend, backend, bases de datos, integraciones con APIs externas y despliegues en entornos productivos. Trabajo con tecnologías como React, Next.js, Angular, Node.js, NestJS, Python/FastAPI, PostgreSQL, Docker y AWS, adaptándome tanto a necesidades de interfaz como de lógica de negocio e infraestructura. He participado en proyectos de fintech, SaaS y e- commerce, construyendo dashboards, flujos transaccionales, integraciones con pasarelas de pago, servicios backend, APIs REST y soluciones conectadas a sistemas externos.Cuento con experiencia trabajando en bases de datos relacionales y NoSQL, microservicios, control de versiones con Git, debugging, soporte de aplicaciones y mejora continua en entornos colaborativos. Mi perfil se caracteriza por una visión integral del producto: puedo aportar en la experiencia de usuario, la construcción de interfaces, la arquitectura backend, la integración de servicios y la estabilidad de sistemas en producción.Busco desarrollar soluciones claras, mantenibles y escalables, alineadas a necesidades reales de negocio.",
     },
     about: {
-      text: "Soy Full Stack Developer con foco en el desarrollo de plataformas web, integraciones, APIs y soluciones digitales escalables. Tengo experiencia trabajando tanto en frontend como backend, construyendo interfaces, paneles administrativos, flujos transaccionales, integraciones de pago, servicios conectados a APIs externas y despliegues productivos. Me gusta combinar una buena experiencia visual con lógica de negocio clara y mantenible."
+      text: "Soy Desarrollador Full Stack con foco en backend, especializado en la creación de aplicaciones web, APIs, integraciones y plataformas digitales. Trabajo con tecnologías como Node.js, NestJS, Python/FastAPI, React, Next.js, Angular, PostgreSQL, Docker y AWS, combinando desarrollo frontend, lógica de negocio, bases de datos, servicios cloud y APIs de terceros. He participado en proyectos de fintech, SaaS y e-commerce, construyendo soluciones orientadas a producto, integraciones con sistemas externos, dashboards administrativos y flujos críticos en producción. También tengo experiencia acompañando despliegues, resolviendo incidencias y mejorando sistemas existentes en entornos colaborativos. Me interesa desarrollar productos mantenibles, escalables y claros, que conecten una buena experiencia de usuario con una arquitectura técnica sólida y alineada a necesidades reales de negocio."
     },
     skills: [
       {
         category: "Frontend",
-        items: ["React", "Next.js", "Angular", "TypeScript", "JavaScript", "Tailwind CSS", "Responsive UI", "Dashboards"]
+        items: ["React", "Next.js", "Angular", "TypeScript", "JavaScript", "Tailwind CSS", "Responsive UI"]
       },
       {
         category: "Backend",
@@ -108,47 +130,106 @@ export const portfolioData: MultilingualPortfolio = {
     ],
     experience: [
       {
-        role: "Full Stack Developer / Integrations Developer",
-        company: "Plux",
-        period: "Mar 2024 - Abr 2025",
-        industry: "Fintech / Pagos",
-        description: "Trabajé en integraciones de pasarelas de pago y soluciones transaccionales para comercios, principalmente sobre WordPress, PrestaShop, Odoo y proyectos web personalizados. Participé en la adaptación de checkouts, integración de botones de pago, manejo de flujos multi-step, soporte técnico a clientes, resolución de bugs productivos y mejoras en paneles internos.",
+        company: 'Plux | Fintech / Payments',
+        role: 'Full Stack Developer',
+        type: '',
+        location: 'Remoto',
+        period: 'Mar 2024 – Abr 2025',
+        description:
+          'Participé en el desarrollo y mantenimiento de funcionalidades backend vinculadas a integraciones de pago, flujos transaccionales y procesos críticos dentro del ecosistema de la plataforma.',
         highlights: [
-          "Integración de gateways de pago en CMS y sitios personalizados.",
-          "Adaptación de checkouts complejos, incluyendo formularios multi-step.",
-          "Trabajo con WordPress, PHP, JavaScript, APIs REST y webhooks.",
-          "Soporte técnico, debugging y resolución de problemas productivos.",
-          "Participación en mejoras de dashboard/panel administrativo."
-        ]
+          'Desarrollo y mantenimiento de funcionalidades backend en Node.js.',
+          'Integración de APIs REST y servicios externos vinculados a pagos.',
+          'Adaptación de flujos de checkout y pasarelas de pago en CMS.',
+          'Resolución de incidencias productivas mediante debugging y análisis técnico.',
+          'Mejoras de estabilidad, seguridad y mantenimiento de procesos sensibles.',
+          'Soporte y ajustes en dashboards y paneles administrativos.',
+          'Colaboración con necesidades de negocio y producto para implementar mejoras continuas.',
+        ],
+        tech: [
+          'Node.js',
+          'Angular',
+          'AWS',
+          'PostgreSQL',
+          'Git',
+          'Jira',
+          'WordPress',
+          'PrestaShop',
+          'Odoo',
+          'PHP',
+          'JavaScript',
+          'APIs REST',
+          'Webhooks',
+        ],
       },
       {
-        role: "Full Stack Developer / Integrations & Backend",
-        company: "Roitels",
-        period: "Abr 2025 - Sep 2025",
-        industry: "SaaS / Hospitality / Integraciones",
-        description: "Trabajé en integraciones con APIs externas para una plataforma vinculada al sector hospitality, conectando servicios de reservas/PMS y flujos backend. Participé en arquitecturas serverless/event-driven sobre AWS, procesamiento de datos y comunicación entre servicios.",
+        company: 'Roitels | SaaS / Hospitality Analytics',
+        role: 'Full Stack Developer',
+        type: '',
+        location: 'Remoto',
+        period: 'Abr 2025 – Sep 2025',
+        description:
+          'Desarrollé y mantuve servicios backend en Python/FastAPI y NestJS, trabajando sobre una arquitectura modular orientada a microservicios, integraciones externas y procesamiento de datos.',
         highlights: [
-          "Integraciones con APIs de terceros como Cloudbeds/PMS.",
-          "Uso de AWS Lambda, SNS, SQS, DynamoDB, Step Functions y CloudWatch.",
-          "Procesamiento de eventos, webhooks y pipelines de integración.",
-          "Trabajo con Python, Boto3, Node.js/NestJS según necesidad.",
-          "Participación en microservicios y flujos backend escalables."
-        ]
+          'Desarrollo de servicios backend con Python/FastAPI y NestJS.',
+          'Integración de APIs REST de terceros.',
+          'Trabajo con microservicios y arquitectura modular.',
+          'Implementación de flujos asincrónicos con servicios AWS.',
+          'Manejo de colas, eventos y procesamiento distribuido.',
+          'Desarrollo de interfaces internas con React y TypeScript.',
+          'Integración entre frontend, backend y servicios externos.',
+          'Acompañamiento de despliegues con Docker y CI/CD.',
+          'Debugging, mantenimiento y resolución de incidencias productivas.',
+        ],
+        tech: [
+          'Python',
+          'FastAPI',
+          'NestJS',
+          'React',
+          'TypeScript',
+          'AWS',
+          'PostgreSQL',
+          'MongoDB',
+          'DynamoDB',
+          'Docker',
+          'Git',
+          'APIs REST',
+          'Microservices',
+          'CI/CD',
+        ],
       },
       {
-        role: "Full Stack Developer",
-        company: "Cortenvio / Freelance",
-        period: "Oct 2025 - Dic 2025",
-        industry: "E-commerce / SaaS / Manufactura",
-        description: "Desarrollé una plataforma web a medida para cotización y gestión de pedidos de corte láser/CNC, combinando carga de archivos DXF, visualización de piezas, cálculo dinámico de precios, órdenes, pagos y logística.",
+        company: 'Cortenvio | E-commerce / SaaS / Manufacturing',
+        role: 'Freelance Full Stack Developer',
+        type: '',
+        location: 'Remoto',
+        period: 'Oct 2025 – Dic 2025',
+        url: 'https://cortenvio.com/',
+        description:
+          'Desarrollé una aplicación web a medida para cotización y gestión de pedidos de corte láser/CNC, utilizando Next.js, TypeScript y PostgreSQL, con foco en construir un flujo completo de producto desde la carga de información hasta la generación de órdenes.',
         highlights: [
-          "Desarrollo con Next.js, React, TypeScript, PostgreSQL y Prisma.",
-          "Visualización 2D/3D de piezas mediante tecnologías vinculadas a Three.js/DXF.",
-          "Algoritmo de cotización por material, espesor, área, recorrido, perforaciones y cantidad.",
-          "Flujo de e-commerce, órdenes, revisión y aprobación.",
-          "Integraciones con pagos y logística/envíos."
-        ]
-      }
+          'Desarrollo de aplicación web con Next.js y TypeScript.',
+          'Modelado y persistencia de datos con PostgreSQL.',
+          'Implementación de lógica de cotización y gestión de pedidos.',
+          'Integración con APIs externas de pagos y envíos.',
+          'Desarrollo de flujo de e-commerce y generación de órdenes.',
+          'Configuración de despliegues con Docker.',
+          'Gestión de assets, CDN y ajustes de entorno productivo.',
+          'Trabajo end-to-end desde frontend hasta backend e infraestructura.',
+        ],
+        tech: [
+          'Next.js',
+          'React',
+          'TypeScript',
+          'PostgreSQL',
+          'Prisma',
+          'Docker',
+          'GitHub',
+          'APIs REST',
+          'E-commerce',
+          'Integraciones externas',
+        ],
+      },
     ],
     projects: [
       {
@@ -176,55 +257,94 @@ export const portfolioData: MultilingualPortfolio = {
           "Debugging inmediato en entornos críticos de producción.",
           "Adaptaciones por theme y desarrollo de plugins modulares."
         ]
-      },
-      {
-        title: "Dashboards y Paneles Administrativos",
-        type: "Web App / Herramientas Internas",
-        description: "Interfaces administrativas para consultar, filtrar y operar información de negocio, órdenes, transacciones o integraciones.",
-        stack: ["Angular", "React", "Node.js", "APIs REST", "PostgreSQL"],
-        highlights: [
-          "Tablas avanzadas con filtros dinámicos.",
-          "Gestión optimizada de estados complejos.",
-          "Consumo asíncrono y seguro de APIs corporativas.",
-          "Enfoque alto en UX/UI para optimizar tiempos de operaciones internas."
-        ]
       }
     ],
-    studies: [
+    studies: [],
+    courses: [
       {
-        title: "Diplomatura en Desarrollo Web Full Stack",
-        institution: "Universidad Tecnológica Nacional",
-        period: "2023",
-        description: "Bases sólidas de frontend, backend, bases de datos relacionales, APIs REST y despliegue continuo de aplicaciones web."
+        title: 'JavaScript Moderno: Guía para dominar el lenguaje',
+        instructor: 'Fernando Herrera',
+        category: 'Frontend / Language',
+        technologies: ['JavaScript'],
       },
       {
-        title: "Especialización y práctica en React, Angular y Node.js",
-        institution: "Plataformas de Educación Profesional / Autodidacta",
-        period: "2023 - 2024",
-        description: "Desarrollo de interfaces web ricas, componentes reutilizables, consumo avanzado de servicios, routing SPA, gestión de formularios complejos y lógica de negocio distribuida."
+        title: 'Node.js',
+        instructor: 'Fernando Herrera',
+        category: 'Backend',
+        technologies: ['Node.js', 'JavaScript', 'APIs'],
       },
       {
-        title: "Capacitación continua en AWS, Docker e Integraciones",
-        institution: "Práctica Profesional / Laboratorios Autónomos",
-        period: "Actualidad",
-        description: "Aprendizaje continuo en arquitectura Serverless, contenerización de servicios, integración experta de APIs de terceros, automatizaciones mediante webhooks y despliegues seguros en producción."
-      }
+        title: 'React',
+        instructor: 'Fernando Herrera',
+        category: 'Frontend',
+        technologies: ['React', 'JavaScript'],
+      },
+      {
+        title: 'React PRO: Lleva tus bases al siguiente nivel',
+        instructor: 'Fernando Herrera',
+        category: 'Frontend',
+        technologies: ['React', 'Advanced React'],
+      },
+      {
+        title: 'Next.js: El framework de React para producción',
+        instructor: 'Fernando Herrera',
+        category: 'Frontend / Full Stack',
+        technologies: ['Next.js', 'React', 'Production'],
+      },
+      {
+        title: 'FastAPI: Crea APIs eficientes con Python',
+        instructor: 'DevTalles / Fernando Herrera',
+        category: 'Backend',
+        technologies: ['Python', 'FastAPI', 'APIs REST'],
+      },
+      {
+        title: 'Nest: Desarrollo backend escalable con Node',
+        instructor: 'DevTalles / Fernando Herrera',
+        category: 'Backend',
+        technologies: ['NestJS', 'Node.js', 'TypeScript'],
+      },
+      {
+        title: 'NestJS + Microservicios: Aplicaciones escalables y modulares',
+        instructor: 'DevTalles / Fernando Herrera',
+        category: 'Backend / Architecture',
+        technologies: ['NestJS', 'Microservices', 'Node.js', 'TypeScript'],
+      },
+      {
+        title: 'Nest + GraphQL: Evoluciona tus APIs',
+        instructor: 'DevTalles / Fernando Herrera',
+        category: 'Backend / APIs',
+        technologies: ['NestJS', 'GraphQL', 'APIs'],
+      },
+      {
+        title: 'PHP moderno: Empieza tu camino en el lenguaje',
+        instructor: 'DevTalles',
+        category: 'Backend / CMS',
+        technologies: ['PHP'],
+      },
+      {
+        title: 'React Native Expo: Aplicaciones nativas para iOS y Android',
+        instructor: 'DevTalles',
+        category: 'Mobile',
+        technologies: ['React Native', 'Expo'],
+      },
+      {
+        title: 'Become a WordPress Developer: Unlocking Power With Code',
+        instructor: 'Brad Schiff',
+        category: 'CMS / WordPress',
+        technologies: ['WordPress', 'PHP', 'JavaScript'],
+      },
     ],
-    personalProjects: [
+    personals: [
       {
-        title: "DevOps Mission Control",
-        type: "Proyecto Personal / Dashboard / Automatización",
-        description: "Dashboard experimental para monitorear servicios, despliegues y eventos de aplicaciones web, emulando la estética de una terminal cyber-isométrica retro.",
-        stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker", "AWS"],
+        title: "Proximamente",
+        type: "",
+        description: "",
+        stack: [""],
         features: [
-          "Panel interactivo de estado de microservicios.",
-          "Logs de consola de sistema simulados en tiempo real.",
-          "Monitor gráfico de despliegues y builds.",
-          "Simulaciones de webhook e integración experimental de GitHub Actions.",
-          "Alertas visuales tipo militar/cyberpunk para fallos de servicios."
+
         ],
-        status: "Concepto / En Progreso",
-        purpose: "Estudiar pipelines y streaming de eventos en realtime."
+        status: "",
+        purpose: ""
       }
     ]
   },
@@ -353,41 +473,92 @@ export const portfolioData: MultilingualPortfolio = {
         ]
       }
     ],
-    studies: [
+    studies: [],
+    courses: [
       {
-        title: "Full Stack Web Development Degree",
-        institution: "Universidad Tecnológica Nacional (UTN)",
-        period: "2023",
-        description: "Solid foundations encompassing front-end UI/UX, database design, REST APIs, and continuous delivery pipelines."
+        title: 'Modern JavaScript: Guide to mastering the language',
+        instructor: 'Fernando Herrera',
+        category: 'Frontend / Language',
+        technologies: ['JavaScript'],
       },
       {
-        title: "React, Angular, and Node.js Professional Mentorships",
-        institution: "E-learning Directories / Self-taught Studies",
-        period: "2023 - 2024",
-        description: "Specialized in rich single-page interfaces, smart recursive components, async service ingestion, state machines, and distributed architecture."
+        title: 'Node.js',
+        instructor: 'Fernando Herrera',
+        category: 'Backend',
+        technologies: ['Node.js', 'JavaScript', 'APIs'],
       },
       {
-        title: "Continuous Training in AWS Cloud, Docker, and Integrations",
-        institution: "Professional Practice / Sandbox Systems Testing",
-        period: "Ongoing",
-        description: "Active knowledge collection on AWS serverless operations, Docker structures, smart third-party webhook alerts, and SSL secure servers."
-      }
+        title: 'React',
+        instructor: 'Fernando Herrera',
+        category: 'Frontend',
+        technologies: ['React', 'JavaScript'],
+      },
+      {
+        title: 'React PRO: Take your bases to the next level',
+        instructor: 'Fernando Herrera',
+        category: 'Frontend',
+        technologies: ['React', 'Advanced React'],
+      },
+      {
+        title: 'Next.js: The React framework for production',
+        instructor: 'Fernando Herrera',
+        category: 'Frontend / Full Stack',
+        technologies: ['Next.js', 'React', 'Production'],
+      },
+      {
+        title: 'FastAPI: Build efficient APIs with Python',
+        instructor: 'DevTalles / Fernando Herrera',
+        category: 'Backend',
+        technologies: ['Python', 'FastAPI', 'APIs REST'],
+      },
+      {
+        title: 'Nest: Scalable backend development with Node',
+        instructor: 'DevTalles / Fernando Herrera',
+        category: 'Backend',
+        technologies: ['NestJS', 'Node.js', 'TypeScript'],
+      },
+      {
+        title: 'NestJS + Microservices: Scalable and modular applications',
+        instructor: 'DevTalles / Fernando Herrera',
+        category: 'Backend / Architecture',
+        technologies: ['NestJS', 'Microservices', 'Node.js', 'TypeScript'],
+      },
+      {
+        title: 'Nest + GraphQL: Evolve your APIs',
+        instructor: 'DevTalles / Fernando Herrera',
+        category: 'Backend / APIs',
+        technologies: ['NestJS', 'GraphQL', 'APIs'],
+      },
+      {
+        title: 'Modern PHP: Begin your journey in the language',
+        instructor: 'DevTalles',
+        category: 'Backend / CMS',
+        technologies: ['PHP'],
+      },
+      {
+        title: 'React Native Expo: Native applications for iOS and Android',
+        instructor: 'DevTalles',
+        category: 'Mobile',
+        technologies: ['React Native', 'Expo'],
+      },
+      {
+        title: 'Become a WordPress Developer: Unlocking Power With Code',
+        instructor: 'Brad Schiff',
+        category: 'CMS / WordPress',
+        technologies: ['WordPress', 'PHP', 'JavaScript'],
+      },
     ],
-    personalProjects: [
+    personals: [
       {
-        title: "DevOps Mission Control",
-        type: "Personal Project / Dashboard / Automation",
-        description: "Experimental console keeping track of server health, microservices, and deployments mimicking a retro cyber-isometric military interface.",
-        stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker", "AWS"],
+        title: "",
+        type: "",
+        description: "",
+        stack: [""],
         features: [
-          "Interactive dashboard depicting online system nodes.",
-          "Asynchronous real-time server logs.",
-          "Graphical deployment and CI/CD pipelines tracking.",
-          "GitHub actions webhook integration tests.",
-          "Visual cyberpunk red error alerts."
+
         ],
-        status: "Concept / In progress",
-        purpose: "Explore real-time data streaming and event buses."
+        status: "",
+        purpose: ""
       }
     ]
   }

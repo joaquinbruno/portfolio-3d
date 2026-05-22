@@ -4,7 +4,7 @@ export type SectionId =
   | 'experience'
   | 'projects'
   | 'studies'
-  | 'personalProjects'
+  | 'personals'
   | 'contact';
 
 export interface SceneTarget {
@@ -86,8 +86,8 @@ export const sceneTargets: Record<SectionId, SceneTarget> = {
     hitboxPosition: [-1.8, 1.5, -1.8],
     hitboxArgs: [1.2, 2.0, 1.2],
   },
-  personalProjects: {
-    id: 'personalProjects',
+  personals: {
+    id: 'personals',
     label: 'Proyectos Personales',
     cameraPosition: [3.6, 2.8, 3.8],
     lookAt: [-0.8, 0.9, 1.7],

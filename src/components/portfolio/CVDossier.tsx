@@ -59,13 +59,16 @@ export function CVDossier() {
               {lang === 'es' ? 'RETORNAR AL 3D' : 'RETURN TO 3D'}
             </Link>
 
-            <button
-              onClick={handlePrint}
+            <a
+              href={lang === 'es' ? '/CV_JOAQUÍN_BRUNO.pdf' : '/JOAQUÍN_BRUNO_CV.pdf'}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 border border-violet-500/30 hover:border-violet-400 bg-violet-950/40 hover:bg-violet-950 px-4 py-2 rounded text-xs tracking-wider text-violet-400 hover:text-white font-black transition-all cursor-pointer shadow-lg shadow-violet-500/5"
             >
               <Printer className="w-4 h-4" />
-              {lang === 'es' ? 'DESCARGAR' : 'DOWNLOAD'}
-            </button>
+              {lang === 'es' ? 'DESCARGAR PDF' : 'DOWNLOAD PDF'}
+            </a>
           </div>
         </div>
 
@@ -230,23 +233,27 @@ export function CVDossier() {
                 <div className="space-y-4">
                   <h3 className="text-xs text-violet-400 font-bold uppercase tracking-widest flex items-center gap-1.5 border-b border-violet-500/15 pb-2 print:text-black print:border-black/20">
                     <GraduationCap className="w-4 h-4 text-violet-500 print:hidden" />
-                    Estudios Académicos
+                    {lang === 'es' ? 'Cursos & Certificaciones' : 'Courses & Certifications'}
                   </h3>
 
-                  <div className="space-y-4">
-                    {portfolioData.studies.map((study, index) => (
-                      <div key={index} className="space-y-1">
+                  <div className="space-y-4 max-h-100 overflow-y-auto pr-1 scrollbar-thin">
+                    {portfolioData.courses.map((course, index) => (
+                      <div key={index} className="space-y-1 py-2 border-b border-white/5 last:border-0 print:border-black/10">
                         <div className="flex justify-between items-start gap-1">
                           <h4 className="text-[11px] font-extrabold text-white print:text-black uppercase leading-tight">
-                            {study.title}
+                            {course.title}
                           </h4>
                         </div>
                         <p className="text-[10px] text-violet-400 font-extrabold uppercase">
-                          {study.institution} ({study.period})
+                          {course.instructor} • {course.category}
                         </p>
-                        <p className="text-[11px] text-gray-400 print:text-black/80 font-sans leading-relaxed">
-                          {study.description}
-                        </p>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {course.technologies.map((tech, tIdx) => (
+                            <span key={tIdx} className="text-[9px] px-1 rounded bg-white/5 text-gray-400 border border-white/10 print:border-black/10 print:text-black/70">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -266,5 +273,5 @@ export function CVDossier() {
         </div>
       </div>
     </section>
-  );
+  )
 }

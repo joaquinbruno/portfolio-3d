@@ -104,7 +104,7 @@ export function PortfolioOverlay() {
     { id: 'experience', label: lang === 'es' ? 'Experiencia' : 'Experience', icon: Briefcase },
     { id: 'projects', label: lang === 'es' ? 'Proyectos' : 'Projects', icon: FolderGit2 },
     { id: 'studies', label: lang === 'es' ? 'Estudios' : 'Education', icon: GraduationCap },
-    { id: 'personalProjects', label: lang === 'es' ? 'Proyectos Personales' : 'Personal Projects', icon: Rocket },
+    { id: 'personals', label: lang === 'es' ? 'Proyectos Personales' : 'Personal Projects', icon: Rocket },
     { id: 'contact', label: lang === 'es' ? 'Contacto' : 'Contact', icon: Mail },
   ];
 

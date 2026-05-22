@@ -67,7 +67,7 @@ export function SectionPanel({ sectionId }: SectionPanelProps) {
         return { title: lang === 'es' ? 'Proyectos' : 'Projects', icon: FolderGit2, accent: 'text-violet-400 border-violet-500/20' };
       case 'studies':
         return { title: lang === 'es' ? 'Estudios & Cursos' : 'Studies & Education', icon: GraduationCap, accent: 'text-pink-400 border-pink-500/20' };
-      case 'personalProjects':
+      case 'personals':
         return { title: lang === 'es' ? 'Lab Personal' : 'Personal Lab', icon: Rocket, accent: 'text-cyan-400 border-cyan-500/20' };
       case 'contact':
         return { title: lang === 'es' ? 'Enlace de Red' : 'Network Link', icon: Mail, accent: 'text-orange-400 border-orange-500/20' };
@@ -123,7 +123,9 @@ export function SectionPanel({ sectionId }: SectionPanelProps) {
             <p className="text-gray-300 whitespace-pre-wrap leading-relaxed">{portfolioData.about.text}</p>
 
             <div className="border-t border-emerald-500/10 pt-3">
-              <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block mb-1">Resumen del perfil</span>
+              <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block mb-1">
+                {lang === 'es' ? 'Resumen del perfil' : 'Profile Summary'}
+              </span>
               <p className="text-[11px] text-gray-400 leading-normal">{portfolioData.profile.summary}</p>
             </div>
           </div>
@@ -132,7 +134,11 @@ export function SectionPanel({ sectionId }: SectionPanelProps) {
         {/* SKILLS SECTION */}
         {sectionId === 'skills' && (
           <div className="space-y-5">
-            <p className="text-gray-400 font-sans">Stack tecnológico y herramientas clave de ingeniería:</p>
+            <p className="text-gray-400 font-sans">
+              {lang === 'es'
+                ? 'Stack tecnológico y herramientas clave de ingeniería:'
+                : 'Tech stack and key engineering tools:'}
+            </p>
 
             {portfolioData.skills.map((skillGroup, idx) => (
               <div key={idx} className="space-y-2 border-l-2 border-emerald-500/15 pl-3">
@@ -210,7 +216,9 @@ export function SectionPanel({ sectionId }: SectionPanelProps) {
                 <p className="text-[11px] text-gray-300 font-sans leading-normal">{proj.description}</p>
 
                 <div className="space-y-1.5 border-t border-emerald-500/5 pt-2">
-                  <span className="text-[9px] font-bold text-gray-500 uppercase tracking-widest block">Metas conseguidas:</span>
+                  <span className="text-[9px] font-bold text-gray-500 uppercase tracking-widest block">
+                    {lang === 'es' ? 'Metas conseguidas:' : 'Key Milestones:'}
+                  </span>
                   <ul className="space-y-1">
                     {proj.highlights.map((hlt, hIdx) => (
                       <li key={hIdx} className="flex gap-1.5 text-[10px] text-gray-400 leading-tight">
@@ -239,25 +247,31 @@ export function SectionPanel({ sectionId }: SectionPanelProps) {
         {/* STUDIES SECTION */}
         {sectionId === 'studies' && (
           <div className="space-y-4">
-            {portfolioData.studies.map((std, idx) => (
+            {portfolioData.courses.map((course, idx) => (
               <div key={idx} className="rounded border border-emerald-500/10 bg-[#0E1326] p-3 space-y-2">
                 <div className="flex items-start justify-between flex-wrap gap-1">
-                  <h3 className="font-bold text-white text-xs md:text-sm leading-tight font-mono">{std.title}</h3>
+                  <h3 className="font-bold text-white text-xs md:text-sm leading-tight font-mono">{course.title}</h3>
                   <span className="text-[10px] font-bold text-pink-400 bg-pink-500/10 px-1.5 py-0.5 rounded border border-pink-500/20">
-                    {std.period}
+                    {course.category}
                   </span>
                 </div>
-                <p className="text-[10px] font-bold text-yellow-500 uppercase tracking-wide">{std.institution}</p>
-                <p className="text-[11px] text-gray-400 leading-relaxed pt-1 font-sans border-t border-emerald-500/5">{std.description}</p>
+                <p className="text-[10px] font-bold text-yellow-500 uppercase tracking-wide">{course.instructor}</p>
+                <div className="flex flex-wrap gap-1 pt-1.5 border-t border-emerald-500/5">
+                  {course.technologies.map((tech) => (
+                    <span key={tech} className="rounded bg-[#11172A] border border-emerald-500/10 px-1.5 py-0.5 text-[9px] font-bold text-emerald-300 uppercase tracking-wider">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         )}
 
         {/* PERSONAL PROJECTS SECTION */}
-        {sectionId === 'personalProjects' && (
+        {sectionId === 'personals' && (
           <div className="space-y-4">
-            {portfolioData.personalProjects.map((pProj, idx) => (
+            {/* {portfolioData.personals.map((pProj, idx) => (
               <div key={idx} className="rounded border border-emerald-500/15 bg-emerald-950/5 p-3 space-y-3">
                 <div className="flex items-start justify-between flex-wrap gap-1.5 border-b border-emerald-500/10 pb-2">
                   <div>
@@ -301,7 +315,8 @@ export function SectionPanel({ sectionId }: SectionPanelProps) {
                   ))}
                 </div>
               </div>
-            ))}
+            ))} */}
+               <p className="text-[10px] text-cyan-400 font-bold uppercase mt-0.5">{lang === 'es' ? 'PROXIMAMENTE' : 'SOON'}</p>
           </div>
         )}
 
