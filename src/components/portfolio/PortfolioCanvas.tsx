@@ -20,7 +20,7 @@ export function PortfolioCanvas() {
         shadows
         dpr={[1, 1.5]}
         camera={{
-          position: [6, 5, 7],
+          position: [0.4, 5, 7.4],
           fov: 42,
         }}
         gl={{
